@@ -45,9 +45,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.security.SecurityMiddleware",
-    'corsheaders.middleware.CorsMiddleware',  
-    'django.contrib.sessions.middleware.SessionMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -124,7 +123,5 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 # --- CORS SETTINGS ---
-# This tells Django it is safe to talk to our local React server
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-]
+# This tells Django it is safe to accept requests from anywhere (like your Vercel frontend)
+CORS_ALLOW_ALL_ORIGINS = True
